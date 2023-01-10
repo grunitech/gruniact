@@ -23,6 +23,19 @@ describe('user-form', () => {
     });
 
     it('should fill the text in the fields and raise the data', () => {
-        // TODO
+        const submit = cy.spy().as("onUser");
+
+        cy.mount(<UserForm onUser={submit} />);
+        cy.get('input[name="email"]').type('eee@eee');
+        cy.get('input[name="fname"]').type('fname');
+        cy.get('input[name="lname"]').type('lname');
+        cy.get('input[name="password"]').type('password');
+        cy.get('button[type="submit"]').click();
+        cy.get("@onUser").should("have.been.calledWith", {
+          email: "eee@eee",
+          fname: "fname",
+          lname: "lname",
+          password: "password",
+        });
     });
 });
