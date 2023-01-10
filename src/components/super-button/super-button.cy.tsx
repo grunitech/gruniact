@@ -48,7 +48,10 @@ describe('super-button', () => {
 
 
     it('should make sure the button label is "HIT ME"', () => {
-
+        cy.mount(<SuperButton label="HIT ME" />);
+        cy.get("button").should("exist");
+        cy.get("button").should("have.attr", "class", "super-button");
+        cy.get("span.label").should("have.text", "HIT ME");
     });
 
 
