@@ -1,9 +1,6 @@
 import UserForm from './user-form';
 
 describe('user-form', () => {
-    // beforeEach(() => {
-    //     cy.mount(<UserForm/>);
-    // });
 
     it('should display with 4 elements and button', () => {
         cy.mount(<UserForm/>);
@@ -13,7 +10,19 @@ describe('user-form', () => {
 
 
     it('should raise data', () => {
-        cy.mount(<UserForm/>);
-        cy.get('input').last().should('have.attr', 'type', 'password');
+        const submit = cy.spy().as('onUser');
+
+        cy.mount(<UserForm onUser={submit}/>);
+        cy.get('button[type="submit"]').click();
+        cy.get('@onUser').should('have.been.calledWith', {
+            email: '',
+            fname: '',
+            lname: '',
+            password: ''
+        });
+    });
+
+    it('should fill the text in the fields and raise the data', () => {
+        // TODO
     });
 });
