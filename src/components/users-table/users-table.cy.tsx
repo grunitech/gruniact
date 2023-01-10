@@ -11,4 +11,26 @@ describe('users-table', () => {
         cy.get('button').click();
         cy.get('@removeUser').should('have.been.calledWith', {id: 1, email: 'a@a', fname: 'a', lname: 'a'});
     });
+
+    it('should display users', () => {
+        cy.mount(<UsersTable users={[]} removeUser={() => {
+        }}/>);
+        cy.get('table').should('have.length', 1);
+        cy.get('tr').should('have.length', 1);
+    });
+
+    it('should display 1 user', () => {
+        cy.mount(<UsersTable users={[
+            {
+                id: 1,
+                email: 'eee@eee',
+                fname: 'fname',
+                lname: 'lname',
+                password: 'password'
+            }
+        ]} removeUser={() => {
+        }}/>);
+        cy.get('table').should('have.length', 1);
+        cy.get('tr').should('have.length', 2);
+    });
 })
