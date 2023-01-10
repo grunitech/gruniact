@@ -25,7 +25,7 @@ export default function UsersTable({users, removeUser}: UsersTableProps) {
                 <td>{u.fname}</td>
                 <td>{u.lname}</td>
                 <td>
-                    <button onClick={() => removeUser(u)}>DELETE</button>
+                    <button name={u.id?.toString()} onClick={() => removeUser(u)}>DELETE</button>
                 </td>
             </tr>))}
             </tbody>
