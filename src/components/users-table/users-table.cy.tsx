@@ -33,4 +33,25 @@ describe('users-table', () => {
         cy.get('table').should('have.length', 1);
         cy.get('tr').should('have.length', 2);
     });
+
+        it('should display 1 user data', () => {
+        cy.mount(<UsersTable users={[
+            {
+                id: 1,
+                email: 'eee@eee',
+                fname: 'fname',
+                lname: 'lname',
+                password: 'password'
+            }
+        ]} removeUser={() => {
+        }}/>);
+        cy.get('table')
+            .within(() => {
+                cy.get('td').eq(0).contains(1)
+                cy.get('td').eq(1).contains('eee@eee')
+                cy.get('td').eq(2).contains('fname')
+                cy.get('td').eq(3).contains('lname')
+                cy.get('td').eq(4).contains('button', 'DELETE')
+            })
+    });
 })
