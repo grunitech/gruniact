@@ -1,6 +1,5 @@
 import UsersTable from "./users-table";
 
-
 describe('users-table', () => {
     it('should delete user when clicking on delete button', () => {
         const removeUser = cy.spy().as('removeUser');

@@ -6,12 +6,20 @@ import UsersTable from '../../components/users-table/users-table';
 
 const URL = 'http://localhost:3003/user';
 
+function authRequest(init: RequestInit = {}) {
+    const headers = init.headers || {};
+    // @ts-ignore
+    headers.token = localStorage.getItem('token') || ''
+    init.headers = headers;
+    return init;
+}
+
 export default function Users() {
     const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
         // on component load, fetch users
-        fetch(URL)
+        fetch(URL, authRequest())
             .then(res => res.json())
             .then(data => setUsers(data));
     }, []);
@@ -20,7 +28,7 @@ export default function Users() {
         if (!window.confirm('Are you suer')) {
             return;
         }
-        await fetch(`http://localhost:3003/user/${id}`, {method: 'delete'});
+        await fetch(`http://localhost:3003/user/${id}`, authRequest({method: 'delete'}));
         setUsers(users.filter(u => u.id !== id));
     }
 
@@ -49,7 +57,7 @@ export default function Users() {
     return (
         <>
             <UserForm onUser={handleAdd}/>
-            <UsersTable users={users}/>
+            <UsersTable users={users} removeUser={() => handleDelete(1)}/>
         </>
     );
 }
