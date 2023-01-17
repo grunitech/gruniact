@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/google.accounts": "^0.0.5",
     "@types/validator": "^13.7.10",
     "cypress": "^12.3.0",
     "sass": "^1.56.2"

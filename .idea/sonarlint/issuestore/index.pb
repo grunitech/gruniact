@@ -1,6 +1,4 @@
 
-=
-src/index.css,c/5/c5d38a62d1faae90a2acaa34b79a7ef365c917e4
 F
 src/react-app-env.d.ts,4/a/4a7b99bdbee5792679d347b6474463bf5e14b66d
 F
@@ -26,8 +24,6 @@ Y
 src/cypress.d.ts,8/2/82e73416cbcbe48130c2b75eb137c2621993764c
 X
 (src/components/navigation/navigation.tsx,3/8/389b20024e9782d45f5a2dfd0d13c944ff42e916
-=
-src/index.tsx,5/a/5ab44fe33ca96299f51ad4778a73e425b92bf439
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 A
@@ -36,8 +32,6 @@ A
 tsconfig.json,6/1/61ebb9fd6e8cf9082658121d5d81e297791dacd0
 [
 +src/components/users-table/users-table.scss,b/3/b3a4e5e6b22e9ca6f9ce81293aac96665799d045
-<
-package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
 ]
 -src/components/super-button/super-button.scss,f/b/fb08006c3402904df98aedd0f69a5d4650d2062a
 V
